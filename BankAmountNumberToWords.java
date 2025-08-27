@@ -1,8 +1,8 @@
 package DataTypes;
 
-public class NareshExample {
+public class BankAmountNumberToWords {
     public static void main(String[] args) {
-        double[] balances = { 1234.56, 7890.12, 345.67 };
+        double[] balances = { 1234.00, 7890.12, 123456 };
 
         for (double balance : balances) {
             System.out.println("Balance: " + balance + " -> " + convertDoubleToWords(balance));
@@ -14,12 +14,12 @@ public class NareshExample {
         long wholePart = (long) number;
         int decimalPart = (int) Math.round((number - wholePart) * 100);
 
-        return numberToWords(wholePart) + " rupees and " + numberToWords(decimalPart) + " paise";
+        return numberToWords(wholePart) + " Rupees and " + numberToWords(decimalPart) + " Paisa";
     }
 
     // Helper method to convert numbers to words (supports up to 9999)
     public static String numberToWords(long num) {
-        String[] units = { "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
+        String[] units = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
                 "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
         String[] tens = { "", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
 
