@@ -6,13 +6,13 @@ import java.math.RoundingMode;
 public class BankAmountUptoKharab {
     public static void main(String[] args) {
         BigDecimal[] balances = {
-                new BigDecimal("1234.56"),
+                new BigDecimal("10000.00"),
                 new BigDecimal("789012345.67"),
-                new BigDecimal("9876543210123.45")
+                new BigDecimal("999999999999999.45")
         };
 
         for (BigDecimal balance : balances) {
-            System.out.println("Balance: " + balance + " -> " + convertBigDecimalToWords(balance));
+            System.out.println("Balance: " + balance + " -> " + convertBigDecimalToWords(balance) + " only");
         }
     }
 
@@ -22,7 +22,7 @@ public class BankAmountUptoKharab {
         BigDecimal[] parts = number.divideAndRemainder(BigDecimal.ONE);
 
         long wholePart = parts[0].longValueExact();
-        int decimalPart = parts[1].movePointRight(2).intValueExact(); // convert 0.xx to paise
+        int decimalPart = parts[1].movePointRight(2).intValueExact(); // convert 0.xx to paisa
 
         StringBuilder result = new StringBuilder();
         if (wholePart > 0) {
@@ -31,7 +31,7 @@ public class BankAmountUptoKharab {
         if (decimalPart > 0) {
             if (result.length() > 0)
                 result.append(" and ");
-            result.append(numberToWords(decimalPart)).append(" paise");
+            result.append(numberToWords(decimalPart)).append(" paisa");
         }
         if (result.length() == 0) {
             result.append("zero rupees");
